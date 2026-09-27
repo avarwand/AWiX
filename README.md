@@ -10,16 +10,6 @@ A **powerful, modern GUI tool** for **turning any Windows program into a profess
 
 ---
 
-## What's New in v1.1.32
-
-- **Wizard Page Texts**: Change the title and text of the start and finish pages (*Welcome*, *Interrupted*, *Error*, *Completed*), with a **Default** button to restore the originals
-- **Installed Name**: The installed program is always named after the **Application Name in lower case** (e.g. `AFTS Portable.exe` → `afts.exe`), whatever the input file is called
-- **Much faster**: The window opens instantly, WiX extensions are cached, and themed wizard artwork is generated several times faster
-- **Info window** with a **live search**: type the first letters of a word, every match is marked and the matching lines are listed
-- **Export / Import Config**: Save all settings, including icon, logo and banner images, in **one `.awix` file**
-
----
-
 ## Main Features
 - **Create MSI or EXE installers** from a single `.exe` or a complete program folder  
 - **Deep program folders supported** (thousands of files, sub-folders like `_internal`)  
@@ -34,6 +24,11 @@ A **powerful, modern GUI tool** for **turning any Windows program into a profess
 - **Progress bar and detailed build log**  
 - **Dark-mode GUI** with clean layout  
 - **Fully GUI-based**: no XML or command-line knowledge required  
+- **Wizard Page Texts**: Change the title and text of the start and finish pages (*Welcome*, *Interrupted*, *Error*, *Completed*), with a **Default** button to restore the originals
+- **Installed Name**: The installed program is always named after the **Application Name in lower case** (e.g. `AFTS Portable.exe` → `afts.exe`), whatever the input file is called
+- **Much faster**: The window opens instantly, WiX extensions are cached, and themed wizard artwork is generated several times faster
+- **Info window** with a **live search**: type the first letters of a word, every match is marked and the matching lines are listed
+- **Export / Import Config**: Save all settings, including icon, logo and banner images, in **one `.awix` file**
 
 ---
 
@@ -77,13 +72,15 @@ Build the same installer again in seconds:
 ## System Requirements
 
 - **OS**: Windows 10 / Windows 11 (64-bit)  
-- **WiX Toolset** v4 or newer (the `wix` command must be available)  
-  ```powershell
-  dotnet tool install --global wix
-  ```
-  WiX v7 or newer: accept the WiX *Open Source Maintenance Fee* EULA (checkbox in AWiX, see [wixtoolset.org/osmf](https://wixtoolset.org/osmf))
+- **WiX Toolset** v4 or newer, installed in one of two ways:
+  - **Option 1 (recommended)**: Download and run the WiX installer from the official page: [github.com/wixtoolset/wix/releases](https://github.com/wixtoolset/wix/releases)
+  - **Option 2** (only if the .NET SDK is already installed): run this command once in PowerShell or the Command Prompt:
+```powershell
+    dotnet tool install --global wix
+```
+- **WiX v7 or newer**: accept the WiX *Open Source Maintenance Fee* EULA (checkbox in AWiX, see [wixtoolset.org/osmf](https://wixtoolset.org/osmf))
 
-The required WiX extensions are added automatically.
+AWiX finds the installed WiX Toolset automatically, and the required WiX extensions are added automatically.
 
 ---
 
@@ -118,7 +115,7 @@ Also available in the footer:
 
 Setup wizards of MSI installers are drawn by Windows Installer, which sets a few limits:
 
-* No hover effects on buttons
+* No hover effects on buttons in the license tab
 * Clickable elements get a thin frame drawn by Windows
 * The license box and the folder field keep the Windows look
 * The colour of the wizard's title bar is set by Windows, only its text can be changed
